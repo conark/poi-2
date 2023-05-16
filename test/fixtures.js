@@ -33,33 +33,36 @@ export const testUsers = [
   },
 ];
 
-export const testCandidates = [
+export const testCounties = [
   {
-    firstName: "Lisa",
-    lastName: "Simpson",
+    countyName: "Waterford",
+    // lastName: "Simpson",
   },
   {
-    firstName: "Maggie",
-    lastName: "Simpson",
+    countyName: "Galway",
+    // lastName: "Simpson",
   },
 ];
 
-export const testDonations = [
+export const testPlaces = [
   {
-    amount: 90,
-    method: "cash",
+    placename: "West Coast Walk",
+    description: "blalalalalalalal",
+    category: "seaside",
     lat: "52.160858",
     lng: "-7.152420",
   },
   {
-    amount: 80,
-    method: "cash",
+    placename: "Dingle Bay Walk",
+    description: "blalalalalalalal",
+    category: "seaside",
     lat: "52.149220",
     lng: "-6.994620",
   },
   {
-    amount: 50,
-    method: "paypal",
+    placename: "Niel River",
+    description: "blalalalalalalal",
+    category: "riverside",
     lat: "52.161290",
     lng: "-7.231540",
   },

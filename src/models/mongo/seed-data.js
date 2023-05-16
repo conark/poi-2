@@ -20,44 +20,53 @@ export const seedData = {
       password: "secret",
     },
   },
-  candidates: {
-    _model: "Candidate",
-    lisa: {
-      firstName: "Lisa",
-      lastName: "Simpson",
-      office: "President",
+  counties: {
+    _model: "County",
+    waterford: {
+      countyName: "Waterford",
+      // lastName: "Simpson",
+      // office: "President",
     },
-    donald: {
-      firstName: "Donald",
-      lastName: "Simpson",
-      office: "President",
+    cork: {
+      countyName: "Cork",
+      // lastName: "Simpson",
+      // office: "President",
+    },
+    dublin: {
+      countyName: "Dublin",
+    },
+    galway: {
+      countyName: "Galway",
     },
   },
-  donations: {
-    _model: "Donation",
+  places: {
+    _model: "Place",
     one: {
-      amount: 40,
-      method: "paypal",
+      placename: "River Lee",
+      description: "blablablaaaaa",
+      category: "riverside",
       lat: "52.160858",
       lng: "-7.152420",
       donor: "->users.bart",
-      candidate: "->candidates.lisa",
+      county: "->counties.cork",
     },
     two: {
-      amount: 90,
-      method: "direct",
+      placename: "Bairon Bay Walk",
+      description: "blalalalalala",
+      category: "seaside",
       lat: "52.149220",
       lng: "-6.994620",
       donor: "->users.marge",
-      candidate: "->candidates.lisa",
+      county: "->counties.dublin",
     },
     three: {
-      amount: 430,
-      method: "paypal",
+      placename: "O'connell River",
+      description: "blalalaloooooooo",
+      category: "riverside",
       lat: "52.161290",
       lng: "-7.231540",
       donor: "->users.homer",
-      candidate: "->candidates.donald",
+      county: "->counties.waterford",
     },
   },
 };

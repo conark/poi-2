@@ -1,6 +1,6 @@
 import { userApi } from "./api/users-api.js";
-import { donationsApi } from "./api/donations-api.js";
-import { candidatesApi } from "./api/candidates-api.js";
+import { placesApi } from "./api/places-api.js";
+import { countiesApi } from "./api/counties-api.js";
 
 export const apiRoutes = [
   { method: "GET", path: "/api/users", config: userApi.find },
@@ -9,14 +9,14 @@ export const apiRoutes = [
   { method: "GET", path: "/api/users/{id}", config: userApi.findOne },
   { method: "POST", path: "/api/users/authenticate", config: userApi.authenticate },
 
-  { method: "GET", path: "/api/donations", config: donationsApi.findAll },
-  { method: "GET", path: "/api/candidates/{id}/donations", config: donationsApi.findByCandidate },
-  { method: "POST", path: "/api/candidates/{id}/donations", config: donationsApi.makeDonation },
-  { method: "DELETE", path: "/api/donations", config: donationsApi.deleteAll },
+  { method: "GET", path: "/api/places", config: placesApi.findAll },
+  { method: "GET", path: "/api/counties/{id}/places", config: placesApi.findByCounty },
+  { method: "POST", path: "/api/counties/{id}/places", config: placesApi.makePlace },
+  { method: "DELETE", path: "/api/places", config: placesApi.deleteAll },
 
-  { method: "GET", path: "/api/candidates", config: candidatesApi.find },
-  { method: "GET", path: "/api/candidates/{id}", config: candidatesApi.findOne },
-  { method: "POST", path: "/api/candidates", config: candidatesApi.create },
-  { method: "DELETE", path: "/api/candidates/{id}", config: candidatesApi.deleteOne },
-  { method: "DELETE", path: "/api/candidates", config: candidatesApi.deleteAll },
+  { method: "GET", path: "/api/counties", config: countiesApi.find },
+  { method: "GET", path: "/api/counties/{id}", config: countiesApi.findOne },
+  { method: "POST", path: "/api/counties", config: countiesApi.create },
+  { method: "DELETE", path: "/api/counties/{id}", config: countiesApi.deleteOne },
+  { method: "DELETE", path: "/api/counties", config: countiesApi.deleteAll },
 ];

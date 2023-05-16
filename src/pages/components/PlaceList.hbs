@@ -1,0 +1,28 @@
+<table class="table is-fullwidth">
+  <thead>
+    <th>Place Name</th>
+    <th>Category</th>
+    <th>Description</th>
+    <th>County</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>Creator</th>
+  </thead>
+  <tbody>
+    {{#each places}}
+      <tr>
+        <td>{{placename}}</td>
+        <td>{{category}}</td>
+        <td>{{description}}</td>
+        {{!-- <td>{{county.lastName}}, {{county.countyName}}</td> --}}
+        <td>{{county.countyName}}</td>
+        <td>{{lat}}</td>
+        <td>{{lng}}</td>
+        <td> {{donor.firstName}} {{donor.lastName}} </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+<div class="box">
+  <div class="title is-5"> Total:  {{total}} </div>
+</div>

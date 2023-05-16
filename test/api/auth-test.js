@@ -1,26 +1,26 @@
 import { assert } from "chai";
-import { donationService } from "./donation-service.js";
+import { placeService } from "./place-service.js";
 import { decodeToken } from "../../src/api/jwt-utils.js";
 import { maggie } from "../fixtures.js";
 
 suite("Authentication API tests", async () => {
   setup(async () => {
-    donationService.clearAuth();
-    await donationService.createUser(maggie);
-    await donationService.authenticate(maggie);
-    await donationService.deleteAllUsers();
+    placeService.clearAuth();
+    await placeService.createUser(maggie);
+    await placeService.authenticate(maggie);
+    await placeService.deleteAllUsers();
   });
 
   test("authenticate", async () => {
-    const returnedUser = await donationService.createUser(maggie);
-    const response = await donationService.authenticate(maggie);
+    const returnedUser = await placeService.createUser(maggie);
+    const response = await placeService.authenticate(maggie);
     assert(response.success);
     assert.isDefined(response.token);
   });
 
   test("verify Token", async () => {
-    const returnedUser = await donationService.createUser(maggie);
-    const response = await donationService.authenticate(maggie);
+    const returnedUser = await placeService.createUser(maggie);
+    const response = await placeService.authenticate(maggie);
 
     const userInfo = decodeToken(response.token);
     assert.equal(userInfo.email, returnedUser.email);
@@ -28,9 +28,9 @@ suite("Authentication API tests", async () => {
   });
 
   test("check Unauthorized", async () => {
-    donationService.clearAuth();
+    placeService.clearAuth();
     try {
-      await donationService.deleteAllUsers();
+      await placeService.deleteAllUsers();
       assert.fail("Route not protected");
     } catch (error) {
       assert.equal(error.response.data.statusCode, 401);

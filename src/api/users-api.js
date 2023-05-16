@@ -70,6 +70,7 @@ export const userApi = {
         const user = await db.userStore.getUserByEmail(request.payload.email);
         if (!user) {
           return Boom.unauthorized("User not found");
+        // eslint-disable-next-line no-else-return
         } else if (user.password !== request.payload.password) {
           return Boom.unauthorized("Invalid password");
         } else {
