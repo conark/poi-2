@@ -20,6 +20,15 @@ export const placesApi = {
       return places;
     },
   },
+  findOne: {
+    auth: {
+      strategy: "jwt",
+    },
+    async handler(request) {
+        const place = await db.placeStore.getPlaceById(request.params.id);
+        return place;
+  },
+},
 
   makePlace: {
     auth: {

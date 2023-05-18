@@ -53,4 +53,34 @@ export const accountsController = {
     }
     return { valid: true, credentials: user };
   },
+  edit: {
+    handler: async function (request, h) {
+      const user = await db.userStore.getUserById(request.params.userid);
+      const viewData = {
+        title: "Edit User",
+        user: user,
+      };
+      return h.view("user-view", viewData);
+      
+    },
+  },
+  update: {
+    handler: async function (request, h) {
+      const user = await db.userStore.getUserById(request.params.userid);
+      const newUser = {
+        firstName: request.payload.firstName,
+        lastName: request.payload.lastName,
+        email: request.payload.email,
+        password: request.payload.password,
+        admin: request.payload.admin,
+      };
+      await db.userStore.updateUser(user, newUser);
+      const viewData = {
+        title: "User updated",
+        user,
+      };
+      return h.view("user-view", viewData).redirect(`/user-view/${user._id}`);
+    },
+  },
+
 };

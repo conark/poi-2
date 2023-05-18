@@ -10,6 +10,14 @@ export const placeMongoStore = {
     const places = await Place.find({ county: id });
     return places;
   },
+   async getPlaceById(id) {
+    if (id) {
+      const place = await Place.findOne({ _id: id }).lean();
+      return place;
+    }
+    return null;
+  },
+
 
   async place(placename,description, category, donor, county, lat, lng) {
     const newPlace = new Place({

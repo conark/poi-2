@@ -10,6 +10,7 @@ export const apiRoutes = [
   { method: "POST", path: "/api/users/authenticate", config: userApi.authenticate },
 
   { method: "GET", path: "/api/places", config: placesApi.findAll },
+  { method: "GET", path: "/api/places/{id}", config: placesApi.findOne },
   { method: "GET", path: "/api/counties/{id}/places", config: placesApi.findByCounty },
   { method: "POST", path: "/api/counties/{id}/places", config: placesApi.makePlace },
   { method: "DELETE", path: "/api/places", config: placesApi.deleteAll },

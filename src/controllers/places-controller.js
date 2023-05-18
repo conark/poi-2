@@ -4,7 +4,10 @@ export const placesController = {
   index: {
     handler: async function (request, h) {
       const counties = await db.countyStore.getAllCounties();
-      return h.view("Place", { title: "Make a Place", counties: counties});
+      return h.view("Place", { 
+        title: "Make a Place",
+        counties: counties}
+        );
     },
   },
   user: {
@@ -18,6 +21,7 @@ export const placesController = {
   report: {
     handler: async function (request, h) {
       const places = await db.placeStore.getAllPlaces();
+      const count = places.length;
       // let total = 0;
       // places.forEach((place) => {
       //   total += place.amount;
@@ -25,7 +29,7 @@ export const placesController = {
       return h.view("Report", {
         title: "Favorite Walk Trail",
         places: places,
-      //  total: total,
+        count: count,
       });
     },
   },

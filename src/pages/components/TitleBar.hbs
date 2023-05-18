@@ -8,10 +8,10 @@
   </div>
   <div class="column">
     <i class="fas fa-solid fa-map fa-3x" style="color:rgb(32, 140, 255)" title="Source repo" pos="bottom" uk-tooltip></i>
-    {{!-- {{#if user}} --}}
-      <div class="is-size-7">{{user.firstName}} {{user.lastName}}</div>
-    {{!-- {{else}} --}}
+    {{#if user}}
+      <div class="is-size-7">Welcome {{user.firstName}} {{user.lastName}}!!!!</div>
+    {{else}}
       <div class="is-size-7">Point of Interest</div>
-    {{!-- {{/if}} --}}
+    {{/if}}
   </div>
 </div>
